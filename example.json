@@ -1,0 +1,21 @@
+{
+  "appView": "IPS",
+  "appViewFeature": "BONITAET",
+  "appViewMode": "NATIVE",
+  "b2bPartner": "string",
+  "cpRef": "string",
+  "csCode": "string",
+  "csPlan": "string",
+  "links": [
+    {
+      "href": "string",
+      "rel": "string",
+      "templated": true
+    }
+  ],
+  "proc": "string",
+  "sideEntryConfig": "string",
+  "webviewLink": "string",
+  "werbepartner": "string",
+  "wpSetConfig": "string"
+}
