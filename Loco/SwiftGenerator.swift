@@ -38,6 +38,10 @@ enum SwiftGenerator {
                 return "URL"
             }
             
+            if (object as? String)?.contains("http") == true {
+                return "URL"
+            }
+            
             let dates = ["datum", "burtstag"]
             if dates.filter({key.lowercased().contains($0)}).count > 0 {
                 return "Date"
@@ -58,13 +62,13 @@ enum SwiftGenerator {
             
         case is NSArray:
             
-            var key = key.capitalizingFirstLetter()
+            var camelKey = key.capitalizingFirstLetter().camelCasedString
             let suffixes = ["e", "s", "List", "Liste"]
-            if let suffix = suffixes.filter({key.hasSuffix($0)}).last {
-                key = String(key.dropLast(suffix.count))
+            if let suffix = suffixes.filter({camelKey.hasSuffix($0)}).last {
+                camelKey = String(camelKey.dropLast(suffix.count))
             }
-            addFile(object, key: key)
-            return "[\(key)]"
+            addFile(object, key: camelKey)
+            return "[\(camelKey)]"
         
         default:
             return "unknown"
