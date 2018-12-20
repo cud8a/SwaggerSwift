@@ -25,9 +25,17 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func pasteClicked(_ sender: Any) {
+        if let swagger = NSPasteboard.general.pasteboardItems?.first?.string(forType: .string) {
+            topTextView.string = swagger
+            topTextView.font = NSFont(name: "Menlo", size: 12)
+            topTextView.textColor = .green
+        }
+    }
+    
     @IBAction func generateClicked(_ sender: Any) {
         do {
-            if let data = topTextView.string.data(using: .utf8), let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: AnyObject] {
+            if let data = topTextView.string.data(using: .utf8), let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any] {
                 
                 var items: [NSTabViewItem] = []
                 for (name, code) in SwiftGenerator.generate(json) {
@@ -53,6 +61,13 @@ class ViewController: NSViewController {
             }
         } catch {
             // handle error
+        }
+    }
+    
+    @IBAction func copyClicked(_ sender: Any) {
+        if let scrollView = tabView.selectedTabViewItem?.view as? NSScrollView, let textView = scrollView.documentView as? NSTextView {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(textView.string, forType: .string)
         }
     }
 }

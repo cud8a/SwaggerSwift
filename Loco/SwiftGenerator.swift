@@ -10,43 +10,73 @@ import Foundation
 
 enum SwiftGenerator {
     
-    private static let header = "import ObjectMapper\n\nstruct #N {\n"
+    private static let header = "\nimport ObjectMapper\n\nstruct #N {\n"
     private static let extenzion = "}\n\nextension #N: Mappable {\n\n    init?(map: Map) {}\n\n    mutating func mapping(map: Map) {\n"
     private static let footer = "    }\n}\n"
     
     private static var files: [String: String] = [:]
     
-    static func generate(_ json: [String: AnyObject]) -> [String: String] {
+    static func generate(_ json: [String: Any]) -> [String: String] {
         files.removeAll()
         addFile(json, key: "Foo")
         return files
     }
     
-    private static func omRep(_ object: AnyObject, key: String) -> String {
+    private static func omRep(_ object: Any, key: String) -> String {
+        
+        let mirror = Mirror(reflecting: object)
+        let subjectType = "\(mirror.subjectType)"
+        if subjectType.contains("Bool") {
+            return "Bool"
+        }
+        
         switch object {
         case is String:
+            
+            let links = ["href", "link"]
+            if links.filter({key.lowercased().contains($0)}).count > 0 {
+                return "URL"
+            }
+            
+            let dates = ["datum", "burtstag"]
+            if dates.filter({key.lowercased().contains($0)}).count > 0 {
+                return "Date"
+            }
+            
             return "String"
-        case is Bool:
-            return "Bool"
+        
         case is Int:
             return "Int"
+            
+        case is Double:
+            return "Double"
+        
         case is NSDictionary:
-            addFile(object, key: key.capitalizingFirstLetter())
-            return key.capitalizingFirstLetter()
+            let camelKey = key.capitalizingFirstLetter().camelCasedString
+            addFile(object, key: camelKey)
+            return camelKey
+            
         case is NSArray:
-            addFile(object, key: key.capitalizingFirstLetter())
-            return "[\(key.capitalizingFirstLetter())]"
+            
+            var key = key.capitalizingFirstLetter()
+            let suffixes = ["e", "s", "List", "Liste"]
+            if let suffix = suffixes.filter({key.hasSuffix($0)}).last {
+                key = String(key.dropLast(suffix.count))
+            }
+            addFile(object, key: key)
+            return "[\(key)]"
+        
         default:
             return "unknown"
         }
     }
     
-    private static func addFile(_ object: AnyObject, key: String) {
-        guard let json = object as? [String: AnyObject] ?? (object as? NSArray)?.firstObject as? [String: AnyObject] else {return}
+    private static func addFile(_ object: Any, key: String) {
+        guard let json = object as? [String: Any] ?? (object as? NSArray)?.firstObject as? [String: Any] else {return}
         addFile(json, key: key)
     }
     
-    private static func addFile(_ json: [String: AnyObject], key: String) {
+    private static func addFile(_ json: [String: Any], key: String) {
         var topSwift = header.replacingOccurrences(of: "#N", with: key)
         var bottomSwift = extenzion.replacingOccurrences(of: "#N", with: key)
         for (key, value) in json {
