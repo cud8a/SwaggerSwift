@@ -716,51 +716,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1351" height="459"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giZ-dO-Sx6">
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="hEW-nI-X3h" customClass="MGSFragariaView">
                                                 <rect key="frame" x="0.0" y="0.0" width="1351" height="459"/>
-                                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="3rW-R8-opm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1351" height="459"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" id="w4s-sQ-Hcb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="1351" height="459"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <size key="minSize" width="1351" height="459"/>
-                                                            <size key="maxSize" width="2220" height="10000000"/>
-                                                            <attributedString key="textStorage">
-                                                                <fragment>
-                                                                    <string key="content">{
-  "id": 0,
-  "valid": true,
-  "geb_datum": "01.01.1988",
-  "bar": {
-    "foo": "hallo"
-  }
-}</string>
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" size="12" name="Menlo-Bold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        </textView>
-                                                    </subviews>
-                                                </clipView>
-                                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="aZ1-bN-dbA">
-                                                    <rect key="frame" x="1335" y="0.0" width="16" height="459"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                            </scrollView>
+                                            </customView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="giZ-dO-Sx6" firstAttribute="top" secondItem="0lZ-Wc-N4Q" secondAttribute="top" id="EuQ-gO-hcc"/>
-                                            <constraint firstAttribute="bottom" secondItem="giZ-dO-Sx6" secondAttribute="bottom" id="bfS-KF-ZMT"/>
-                                            <constraint firstAttribute="trailing" secondItem="giZ-dO-Sx6" secondAttribute="trailing" id="rgH-ho-B2D"/>
-                                            <constraint firstItem="giZ-dO-Sx6" firstAttribute="leading" secondItem="0lZ-Wc-N4Q" secondAttribute="leading" id="sc7-9R-1fE"/>
+                                            <constraint firstAttribute="trailing" secondItem="hEW-nI-X3h" secondAttribute="trailing" id="B0h-Qd-CoD"/>
+                                            <constraint firstItem="hEW-nI-X3h" firstAttribute="leading" secondItem="0lZ-Wc-N4Q" secondAttribute="leading" id="ClA-eh-7hm"/>
+                                            <constraint firstAttribute="bottom" secondItem="hEW-nI-X3h" secondAttribute="bottom" id="X4v-vT-uVI"/>
+                                            <constraint firstItem="hEW-nI-X3h" firstAttribute="top" secondItem="0lZ-Wc-N4Q" secondAttribute="top" id="hkb-PL-1kb"/>
                                         </constraints>
                                     </customView>
                                     <customView id="kik-Nd-adh">
@@ -831,9 +795,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fragariaView" destination="hEW-nI-X3h" id="W98-PD-VFV"/>
                         <outlet property="splitView" destination="KHV-ae-SqG" id="rTU-Ng-rHA"/>
                         <outlet property="tabView" destination="r60-8m-WOS" id="FU5-wq-ELf"/>
-                        <outlet property="topTextView" destination="w4s-sQ-Hcb" id="JBV-nX-m1U"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

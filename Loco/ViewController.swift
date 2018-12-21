@@ -7,16 +7,28 @@
 //
 
 import Cocoa
+import Fragaria
 
 class ViewController: NSViewController {
 
-    @IBOutlet var topTextView: NSTextView!
+    @IBOutlet weak var fragariaView: MGSFragariaView!
     @IBOutlet weak var tabView: NSTabView!
     @IBOutlet weak var splitView: NSSplitView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextView.isAutomaticQuoteSubstitutionEnabled = false
+        fragariaView.showsGutter = false
+        fragariaView.syntaxDefinitionName = "Javascript"
+        fragariaView.textView.string = """
+        {
+            "id": 0,
+            "valid": true,
+            "geb_datum": "01.01.1988",
+            "bar": {
+                "foo": "hallo"
+            }
+        }
+        """
         splitView.setPosition(300, ofDividerAt: 0)
         generateClicked(self)
     }
@@ -29,21 +41,20 @@ class ViewController: NSViewController {
     
     @IBAction func pasteClicked(_ sender: Any) {
         if let swagger = NSPasteboard.general.pasteboardItems?.first?.string(forType: .string) {
-            topTextView.string = swagger
-            topTextView.font = NSFont(name: "Menlo", size: 12)
-            topTextView.textColor = .green
+            fragariaView.textView.string = swagger
         }
     }
     
     @IBAction func generateClicked(_ sender: Any) {
         do {
-            if let data = topTextView.string.data(using: .utf8), let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any] {
+            if let data = fragariaView.textView.string.data(using: .utf8), let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any] {
                 
                 var items: [NSTabViewItem] = []
                 for (name, code) in SwiftGenerator.generate(json) {
-                    let textView = NSTextView(frame: tabView.contentRect)
+                    let textView = SMLTextView(frame: tabView.contentRect)
+                    textView.syntaxColouring.syntaxDefinitionName = "Swift"
                     textView.string = code
-                    textView.font = NSFont(name: "Menlo", size: 12)
+                    //textView.font = NSFont(name: "Menlo", size: 12)
                     textView.autoresizingMask = .width
                     textView.minSize = NSSize(width: 0, height: tabView.contentRect.height)
                     textView.maxSize = NSSize(width: CGFloat(Float.greatestFiniteMagnitude), height: CGFloat(Float.greatestFiniteMagnitude))

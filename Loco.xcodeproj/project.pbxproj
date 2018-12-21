@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FF5E8F7F74B03E388502E26 /* Pods_Loco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3314695FBBCD58BF4C73CDF /* Pods_Loco.framework */; };
+		8809603221CD1F2B006BA0AD /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 8809602F21CD1F2B006BA0AD /* example.json */; };
+		8809603321CD1F2B006BA0AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8809603021CD1F2B006BA0AD /* README.md */; };
 		88F26E7F21CA64DD00FD291E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F26E7E21CA64DD00FD291E /* AppDelegate.swift */; };
 		88F26E8121CA64DD00FD291E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F26E8021CA64DD00FD291E /* ViewController.swift */; };
 		88F26E8321CA64DF00FD291E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F26E8221CA64DF00FD291E /* Assets.xcassets */; };
@@ -15,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F812389CE8EF0041FAE8F65 /* Pods-Loco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loco.release.xcconfig"; path = "Pods/Target Support Files/Pods-Loco/Pods-Loco.release.xcconfig"; sourceTree = "<group>"; };
+		42BC14F2814187832E815F30 /* Pods-Loco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loco/Pods-Loco.debug.xcconfig"; sourceTree = "<group>"; };
+		8809602F21CD1F2B006BA0AD /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		8809603021CD1F2B006BA0AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88F26E7B21CA64DD00FD291E /* Loco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F26E7E21CA64DD00FD291E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F26E8021CA64DD00FD291E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +30,7 @@
 		88F26E8721CA64DF00FD291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F26E8821CA64DF00FD291E /* Loco.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Loco.entitlements; sourceTree = "<group>"; };
 		88F26E8E21CA7E5800FD291E /* SwiftGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGenerator.swift; sourceTree = "<group>"; };
+		F3314695FBBCD58BF4C73CDF /* Pods_Loco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF5E8F7F74B03E388502E26 /* Pods_Loco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,8 +48,12 @@
 		88F26E7221CA64DD00FD291E = {
 			isa = PBXGroup;
 			children = (
+				8809602F21CD1F2B006BA0AD /* example.json */,
+				8809603021CD1F2B006BA0AD /* README.md */,
 				88F26E7D21CA64DD00FD291E /* Loco */,
 				88F26E7C21CA64DD00FD291E /* Products */,
+				D73D2A2B927DA4E75E5AB75F /* Pods */,
+				E2E99CE0F8E132DED493BDA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +79,23 @@
 			path = Loco;
 			sourceTree = "<group>";
 		};
+		D73D2A2B927DA4E75E5AB75F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42BC14F2814187832E815F30 /* Pods-Loco.debug.xcconfig */,
+				1F812389CE8EF0041FAE8F65 /* Pods-Loco.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E2E99CE0F8E132DED493BDA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3314695FBBCD58BF4C73CDF /* Pods_Loco.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88F26E8B21CA64DF00FD291E /* Build configuration list for PBXNativeTarget "Loco" */;
 			buildPhases = (
+				E9ED82A1C036764FD05B7C7F /* [CP] Check Pods Manifest.lock */,
 				88F26E7721CA64DD00FD291E /* Sources */,
 				88F26E7821CA64DD00FD291E /* Frameworks */,
 				88F26E7921CA64DD00FD291E /* Resources */,
+				14D2746F2F5EA05175CC97F9 /* [CP] Embed Pods Frameworks */,
+				183B9193E26F29E7AB0CC1F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,10 +159,66 @@
 			files = (
 				88F26E8321CA64DF00FD291E /* Assets.xcassets in Resources */,
 				88F26E8621CA64DF00FD291E /* Main.storyboard in Resources */,
+				8809603321CD1F2B006BA0AD /* README.md in Resources */,
+				8809603221CD1F2B006BA0AD /* example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14D2746F2F5EA05175CC97F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Loco/Pods-Loco-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fragaria/Fragaria.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fragaria.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loco/Pods-Loco-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		183B9193E26F29E7AB0CC1F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loco/Pods-Loco-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9ED82A1C036764FD05B7C7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loco-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88F26E7721CA64DD00FD291E /* Sources */ = {
@@ -273,6 +362,7 @@
 		};
 		88F26E8C21CA64DF00FD291E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42BC14F2814187832E815F30 /* Pods-Loco.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Loco/Loco.entitlements;
@@ -292,6 +382,7 @@
 		};
 		88F26E8D21CA64DF00FD291E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F812389CE8EF0041FAE8F65 /* Pods-Loco.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Loco/Loco.entitlements;

@@ -1,0 +1,23 @@
+PODS:
+  - Fragaria (1.0.2):
+    - Fragaria/unicode (= 1.0.2)
+  - Fragaria/unicode (1.0.2)
+
+DEPENDENCIES:
+  - Fragaria (from `Fragaria.podspec.json`)
+
+EXTERNAL SOURCES:
+  Fragaria:
+    :podspec: Fragaria.podspec.json
+
+CHECKOUT OPTIONS:
+  Fragaria:
+    :commit: 8794cd8867e1d032374525cb54b8d374fd8a5c58
+    :git: https://github.com/bitstadium/Fragaria.git
+
+SPEC CHECKSUMS:
+  Fragaria: 02606519a1f3d87f203929f9e9ebf0290f987372
+
+PODFILE CHECKSUM: 43afe8808177900d493319acb54275234d18d4bd
+
+COCOAPODS: 1.4.0
