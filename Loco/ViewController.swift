@@ -12,11 +12,13 @@ class ViewController: NSViewController {
 
     @IBOutlet var topTextView: NSTextView!
     @IBOutlet weak var tabView: NSTabView!
+    @IBOutlet weak var splitView: NSSplitView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        topTextView.isAutomaticQuoteSubstitutionEnabled = false
+        splitView.setPosition(300, ofDividerAt: 0)
+        generateClicked(self)
     }
 
     override var representedObject: Any? {
